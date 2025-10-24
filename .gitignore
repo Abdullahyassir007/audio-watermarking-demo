@@ -89,3 +89,10 @@ Models/
 # Logs
 *.log
 logs/
+
+# Cloned repositories
+silentcipher/
+
+# Test scripts
+backend/test_*.py
+!backend/tests/test_*.py
