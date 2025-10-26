@@ -209,8 +209,8 @@ export default function MessageInput({ onMessageChange, messageType: initialType
             <button
               onClick={() => handleFormatSwitch('numeric')}
               className={`flex-1 px-6 py-3 font-semibold rounded-lg transition-all duration-200 ${messageType === 'numeric'
-                  ? 'bg-white text-blue-600 shadow-md transform scale-105'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                ? 'bg-white text-blue-600 shadow-md transform scale-105'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
             >
               <div className="flex items-center justify-center gap-2">
@@ -221,8 +221,8 @@ export default function MessageInput({ onMessageChange, messageType: initialType
             <button
               onClick={() => handleFormatSwitch('text')}
               className={`flex-1 px-6 py-3 font-semibold rounded-lg transition-all duration-200 ${messageType === 'text'
-                  ? 'bg-white text-blue-600 shadow-md transform scale-105'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                ? 'bg-white text-blue-600 shadow-md transform scale-105'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
             >
               <div className="flex items-center justify-center gap-2">
@@ -233,8 +233,8 @@ export default function MessageInput({ onMessageChange, messageType: initialType
             <button
               onClick={() => handleFormatSwitch('binary')}
               className={`flex-1 px-6 py-3 font-semibold rounded-lg transition-all duration-200 ${messageType === 'binary'
-                  ? 'bg-white text-blue-600 shadow-md transform scale-105'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                ? 'bg-white text-blue-600 shadow-md transform scale-105'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
             >
               <div className="flex items-center justify-center gap-2">
