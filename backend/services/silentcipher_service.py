@@ -144,9 +144,28 @@ class SilentCipherService:
             else:
                 audio_input = audio_data
             
+            # Ensure minimum length for SilentCipher (pad if needed)
+            # SilentCipher needs at least 3 seconds at the target sample rate
+            min_samples = int(3.5 * sample_rate)  # 3.5 seconds to be safe
+            original_length = len(audio_input)
+            if len(audio_input) < min_samples:
+                # Pad with silence to meet minimum length
+                padding = min_samples - len(audio_input)
+                audio_input = np.pad(audio_input, (0, padding), mode='constant', constant_values=0)
+                self._logger.warning(
+                    f"Audio padded from {original_length} to {len(audio_input)} samples "
+                    f"({original_length/sample_rate:.2f}s to {len(audio_input)/sample_rate:.2f}s) "
+                    f"to meet SilentCipher minimum length requirement"
+                )
+            
             # Encode the watermark using encode_wav
             self._logger.info(f"Encoding watermark with message: {message}")
             watermarked_audio, sdr = model.encode_wav(audio_input, sample_rate, message)
+            
+            # Trim back to original length if we padded
+            if original_length < min_samples and len(watermarked_audio) > original_length:
+                watermarked_audio = watermarked_audio[:original_length]
+                self._logger.info(f"Trimmed watermarked audio back to original length: {original_length} samples")
             
             # Convert back to original format if needed
             if audio_data.ndim == 2 and audio_data.shape[0] < audio_data.shape[1]:
@@ -158,6 +177,13 @@ class SilentCipherService:
             
         except Exception as e:
             self._logger.error(f"Encoding failed: {e}")
+            error_msg = str(e)
+            if "broadcast" in error_msg or "shape" in error_msg:
+                raise RuntimeError(
+                    f"Failed to encode watermark due to audio length mismatch. "
+                    f"This can happen with very short audio (<3s). "
+                    f"Original error: {e}"
+                )
             raise RuntimeError(f"Failed to encode watermark: {e}")
     
     def decode_audio(

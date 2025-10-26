@@ -13,12 +13,14 @@ Your `test_audio` folder contains audio files that are:
 ## Audio Requirements
 
 ### Minimum Requirements
-| Requirement | Value | Your Files |
-|-------------|-------|------------|
-| **Duration** | ≥3 seconds | 0.3-1.2s ❌ |
-| **Sample Rate** | 16kHz or 44.1kHz | 8kHz ❌ |
-| **Format** | WAV or FLAC | WAV ✅ |
-| **Channels** | Mono or Stereo | Mono ✅ |
+| Requirement | Value | Your Files | Auto-Fix |
+|-------------|-------|------------|----------|
+| **Duration** | ≥3 seconds | 0.3-1.2s ❌ | ✅ Auto-padded |
+| **Sample Rate** | 16kHz or 44.1kHz | 8kHz ❌ | ✅ Auto-resampled |
+| **Format** | WAV or FLAC | WAV ✅ | N/A |
+| **Channels** | Mono or Stereo | Mono ✅ | N/A |
+
+**Note**: Short audio (<3s) is now automatically padded with silence to meet SilentCipher's requirements!
 
 ### Recommended Specifications
 - **Duration**: 5-15 seconds (optimal)

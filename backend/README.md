@@ -211,9 +211,13 @@ The GUI provides:
 
 - **Format**: WAV or FLAC files
 - **Sample Rates**: 16kHz or 44.1kHz (44.1kHz recommended)
+  - Other sample rates are automatically resampled
 - **Duration**: Minimum 3-5 seconds for reliable watermarking
+  - Shorter audio is automatically padded with silence
 - **Channels**: Mono or stereo (will use first channel for watermarking)
 - **File Size**: Maximum 50MB
+
+**Note**: The system now automatically handles short audio by padding with silence and non-standard sample rates by resampling!
 
 ### Output Information
 
