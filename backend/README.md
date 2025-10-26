@@ -209,7 +209,7 @@ The GUI provides:
 
 ### Audio File Requirements
 
-- **Format**: WAV files only
+- **Format**: WAV or FLAC files
 - **Sample Rates**: 16kHz or 44.1kHz (44.1kHz recommended)
 - **Duration**: Minimum 3-5 seconds for reliable watermarking
 - **Channels**: Mono or stereo (will use first channel for watermarking)

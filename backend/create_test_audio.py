@@ -62,10 +62,14 @@ def check_audio_files(directory="test_audio"):
         print(f"Directory not found: {directory}")
         return
     
-    audio_files = glob.glob(os.path.join(directory, "*.wav"))
+    # Check both WAV and FLAC files
+    audio_files = (
+        glob.glob(os.path.join(directory, "*.wav")) +
+        glob.glob(os.path.join(directory, "*.flac"))
+    )
     
     if not audio_files:
-        print(f"No WAV files found in {directory}")
+        print(f"No WAV or FLAC files found in {directory}")
         return
     
     print(f"\nChecking {len(audio_files)} audio files in {directory}:")

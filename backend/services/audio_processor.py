@@ -11,7 +11,7 @@ import os
 class AudioProcessor:
     """Handles audio file operations including loading, saving, validation, and distortion."""
     
-    SUPPORTED_FORMATS = ['.wav']
+    SUPPORTED_FORMATS = ['.wav', '.flac']
     SUPPORTED_SAMPLE_RATES = [16000, 44100]
     MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
     

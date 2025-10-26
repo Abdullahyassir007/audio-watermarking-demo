@@ -150,7 +150,12 @@ class WatermarkingGUI:
         """Browse for input audio file for encoding."""
         filename = filedialog.askopenfilename(
             title="Select Input Audio File",
-            filetypes=[("WAV files", "*.wav"), ("All files", "*.*")]
+            filetypes=[
+                ("Audio files", "*.wav *.flac"),
+                ("WAV files", "*.wav"),
+                ("FLAC files", "*.flac"),
+                ("All files", "*.*")
+            ]
         )
         if filename:
             self.encode_input_var.set(filename)
@@ -169,7 +174,12 @@ class WatermarkingGUI:
         """Browse for input audio file for decoding."""
         filename = filedialog.askopenfilename(
             title="Select Watermarked Audio File",
-            filetypes=[("WAV files", "*.wav"), ("All files", "*.*")]
+            filetypes=[
+                ("Audio files", "*.wav *.flac"),
+                ("WAV files", "*.wav"),
+                ("FLAC files", "*.flac"),
+                ("All files", "*.*")
+            ]
         )
         if filename:
             self.decode_input_var.set(filename)

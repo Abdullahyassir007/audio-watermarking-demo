@@ -17,7 +17,7 @@ Your `test_audio` folder contains audio files that are:
 |-------------|-------|------------|
 | **Duration** | ≥3 seconds | 0.3-1.2s ❌ |
 | **Sample Rate** | 16kHz or 44.1kHz | 8kHz ❌ |
-| **Format** | WAV | WAV ✅ |
+| **Format** | WAV or FLAC | WAV ✅ |
 | **Channels** | Mono or Stereo | Mono ✅ |
 
 ### Recommended Specifications

@@ -67,7 +67,7 @@ Examples:
     encode_parser.add_argument(
         '--input',
         required=True,
-        help='Path to input audio file (WAV format, 16kHz or 44.1kHz)'
+        help='Path to input audio file (WAV or FLAC format, 16kHz or 44.1kHz)'
     )
     encode_parser.add_argument(
         '--output',
@@ -134,8 +134,9 @@ def validate_arguments(args):
         raise ValueError(f"Input file does not exist: {args.input}")
     
     # Validate input file extension
-    if not args.input.lower().endswith('.wav'):
-        raise ValueError(f"Input file must be a WAV file: {args.input}")
+    valid_extensions = ('.wav', '.flac')
+    if not args.input.lower().endswith(valid_extensions):
+        raise ValueError(f"Input file must be WAV or FLAC format: {args.input}")
     
     # Validate encode-specific arguments
     if args.command == 'encode':
