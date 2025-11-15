@@ -12,16 +12,18 @@
 
 - [ ] 20. Set up IDEAW in Google Colab
   - [ ] 20.1 Prepare Google Colab environment
-    - Create Google Drive folder structure: `IDEAW_Research/{code, data, checkpoints, results}`
-    - Upload IDEAW repository (from research/IDEAW) to Drive as zip
+    - Create Google Drive folder structure: `IDEAW_Research/{data, checkpoints, results}`
     - Upload training audio files to Drive/data folder
+    - Ensure code is pushed to GitHub: https://github.com/Abdullahyassir007/audio-watermarking-demo
     - Open provided Colab notebook template: `colab_notebooks/IDEAW_Training_Template.ipynb`
     - Enable GPU in Colab: Runtime → Change runtime type → GPU
     - _Requirements: 14.1, 14.10_
   
   - [ ] 20.2 Test IDEAW baseline in Colab
-    - Run Colab notebook setup cells (mount Drive, install dependencies)
-    - Extract IDEAW code in Colab
+    - Clone repository from GitHub in Colab: `!git clone https://github.com/Abdullahyassir007/audio-watermarking-demo.git`
+    - Navigate to project: `%cd audio-watermarking-demo`
+    - Mount Google Drive for data and checkpoints
+    - Install dependencies: `!pip install -r research/IDEAW/requirements.txt`
     - Load IDEAW model and verify GPU availability
     - Review IDEAW's embed_extract.py to understand workflow
     - Test embedding and extraction with sample audio
@@ -30,12 +32,14 @@
   
   - [ ] 20.3 Implement IDEAW training in Colab
     - **TASK**: Complete the training section in Colab notebook
-    - Implement data loading from Drive
-    - Implement training loop using IDEAW's Solver
+    - Check if IDEAW has Solver: `!cat research/IDEAW/solver.py`
+    - If Solver exists, use it; otherwise implement custom training loop
+    - Implement data loading from Drive (copy to local for faster training)
     - Add checkpoint saving to Drive (every 10 epochs)
     - Add training metrics logging (loss, SNR, accuracy)
     - Implement resume from checkpoint functionality
     - Test training on small dataset first
+    - Push any code changes back to GitHub: `!git add . && git commit -m "..." && git push`
     - _Requirements: 14.5, 14.6, 14.8_
   
   - [ ] 20.4 Train IDEAW baseline model in Colab
@@ -131,9 +135,12 @@
     - Prepare results for paper
     - _Requirements: 14.7, 14.9_
   
-  - [ ] 21.9 Download trained models from Colab
-    - Download all checkpoints from Drive to local machine
-    - Organize in `research/trained_models/` directory
+  - [ ] 21.9 Sync trained models and push code updates
+    - All checkpoints automatically saved to Google Drive
+    - Push any FrEIA implementation code to GitHub
+    - Commit Colab notebooks with results to GitHub
+    - Download key checkpoints from Drive to local if needed for evaluation
+    - Organize in `research/trained_models/` directory locally
     - Create model inventory with performance metrics
     - Prepare models for attack evaluation (next phase)
     - _Requirements: 14.9_
