@@ -37,6 +37,12 @@ def to_equal_length(original, audio_watermarked):
 
 
 def signal_noise_ratio(original, audio_watermarked):
+    # Convert torch tensors to numpy if needed
+    if torch.is_tensor(original):
+        original = original.detach().cpu().numpy()
+    if torch.is_tensor(audio_watermarked):
+        audio_watermarked = audio_watermarked.detach().cpu().numpy()
+    
     original, audio_watermarked = to_equal_length(original, audio_watermarked)
     noise_strength = numpy.sum((original - audio_watermarked) ** 2)
     if noise_strength == 0:
