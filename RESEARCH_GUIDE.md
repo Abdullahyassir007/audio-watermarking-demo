@@ -127,8 +127,8 @@ DATA_PATH = '/content/data'
 from google.colab import drive
 drive.mount('/content/drive')
 
-# Install dependencies
-!pip install -q -r research/IDEAW/requirements.txt
+# Install dependencies (Colab-compatible versions)
+!pip install -q -r research/IDEAW/requirements_colab.txt
 !pip install -q FrEIA
 
 # Check GPU
