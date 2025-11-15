@@ -1,6 +1,23 @@
-# Audio Watermarking Demo
+# Audio Watermarking Research Platform
 
-A full-stack web application showcasing Sony's SilentCipher audio watermarking technology. This demo allows users to embed imperceptible watermarks in audio files, decode them, test robustness through distortions, and share watermarked audio across devices.
+A comprehensive research platform for audio watermarking that includes:
+1. **Demo Application**: Full-stack web app showcasing SilentCipher technology
+2. **Research Framework**: Multi-method watermarking with IDEAW, FrEIA, WavMark, and ensemble learning
+3. **Evaluation Suite**: Comprehensive attack testing and metrics for academic research
+
+## 🎓 For Research Work
+
+**→ Start here: [RESEARCH_GUIDE.md](RESEARCH_GUIDE.md)**
+
+This guide covers:
+- IDEAW + FrEIA implementation in Google Colab
+- Training workflows and ablation studies
+- Attack suite and evaluation metrics
+- 12-week timeline to paper submission
+
+## 🌐 For Demo Application
+
+The demo application showcases audio watermarking capabilities with an intuitive web interface.
 
 ## Features
 

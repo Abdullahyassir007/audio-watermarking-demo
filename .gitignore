@@ -1,6 +1,3 @@
-# Kiro IDE
-.kiro/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -31,68 +28,79 @@ venv/
 ENV/
 env/
 
-# Flask
-instance/
-.webassets-cache
-
-# Audio files (temporary)
-*.wav
-*.mp3
-*.flac
-*.ogg
-!examples/**/*.wav
-!test/**/*.wav
-
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# React / Vite
-dist/
-dist-ssr/
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Temporary files
-tmp/
-temp/
-*.tmp
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Models (large files)
-Models/
-*.ckpt
-*.pth
-*.pt
+# Audio files (too large for git)
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
 
-# Logs
-*.log
+# Model checkpoints (too large for git)
+*.pth
+*.pkl
+*.ckpt
+*.h5
+*.pb
+
+# Data directories
+data/
+datasets/
+checkpoints/
+results/
 logs/
 
-# Cloned repositories
-silentcipher/
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
 
-# Test scripts
-backend/test_*.py
-!backend/tests/test_*.py
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.npm
+.yarn
+
+# Frontend build
+frontend/dist/
+frontend/build/
+frontend/.next/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# Research specific
+research/IDEAW/data/
+research/IDEAW/checkpoints/
+research/IDEAW/results/
+research/wavmark/data/
+research/wavmark/checkpoints/
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
