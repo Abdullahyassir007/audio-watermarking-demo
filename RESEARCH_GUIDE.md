@@ -17,19 +17,14 @@
 
 ## 🚀 Quick Start {#quick-start}
 
-### Step 1: Prepare Files (2 minutes)
-```bash
-# On your local machine
-cd research/IDEAW
-zip -r IDEAW.zip .
-```
+### Step 1: Ensure Code is on GitHub (Already Done! ✅)
+Your code is already at: https://github.com/Abdullahyassir007/audio-watermarking-demo
 
-### Step 2: Upload to Google Drive (1 minute)
+### Step 2: Upload Training Data to Google Drive (1 minute)
 1. Open [Google Drive](https://drive.google.com)
 2. Create folder: `IDEAW_Research`
-3. Create subfolders: `code/`, `data/`, `checkpoints/`, `results/`
-4. Upload `IDEAW.zip` to `code/`
-5. Upload training audio to `data/`
+3. Create subfolders: `data/`, `checkpoints/`, `results/`
+4. Upload training audio files to `data/` folder
 
 ### Step 3: Open Colab (1 minute)
 1. Go to [Google Colab](https://colab.research.google.com)
@@ -99,16 +94,16 @@ DATA_PATH = '/content/drive/MyDrive/IDEAW_Research/data'
 ```
 **Best for:** Quick start, small projects
 
-#### Option 2: GitHub + Drive (Recommended)
+#### Option 2: GitHub + Drive (Recommended) ⭐
 ```python
-!git clone https://github.com/YOUR_USERNAME/IDEAW-Research.git
-%cd IDEAW-Research
+!git clone https://github.com/Abdullahyassir007/audio-watermarking-demo.git
+%cd audio-watermarking-demo
 
 from google.colab import drive
 drive.mount('/content/drive')
 DATA_PATH = '/content/drive/MyDrive/IDEAW_Research/data'
 ```
-**Best for:** Active development, version control
+**Best for:** Active development, version control, easy code updates
 
 #### Option 3: Local Copy (Fastest Training)
 ```python
@@ -124,19 +119,17 @@ DATA_PATH = '/content/data'
 ### Minimal Colab Setup (Copy-Paste)
 
 ```python
-# Mount Drive
+# Clone from GitHub
+!git clone https://github.com/Abdullahyassir007/audio-watermarking-demo.git
+%cd audio-watermarking-demo
+
+# Mount Drive for data
 from google.colab import drive
 drive.mount('/content/drive')
 
 # Install dependencies
-!pip install -q torch==1.13.1 librosa==0.10.1 scipy pydub PyYAML resampy soundfile tqdm
-
-# Extract IDEAW
-import zipfile, os
-DRIVE_PATH = '/content/drive/MyDrive/IDEAW_Research'
-with zipfile.ZipFile(f'{DRIVE_PATH}/code/IDEAW.zip', 'r') as zip_ref:
-    zip_ref.extractall('/content')
-os.chdir('/content/IDEAW')
+!pip install -q -r research/IDEAW/requirements.txt
+!pip install -q FrEIA
 
 # Check GPU
 import torch
@@ -144,9 +137,12 @@ print(f"GPU: {torch.cuda.is_available()}")
 print(f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
 
 # Load IDEAW
+import sys
+sys.path.insert(0, '/content/audio-watermarking-demo/research/IDEAW')
 from models.ideaw import IDEAW
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-ideaw = IDEAW('models/config.yaml', device)
+ideaw = IDEAW('research/IDEAW/models/config.yaml', device)
 print("✓ IDEAW loaded!")
 ```
 
@@ -222,6 +218,7 @@ if os.path.exists(checkpoint_path):
 - Prepare reproducibility package
 
 **Deliverable:** Draft paper ready for submission
+
 
 ---
 
