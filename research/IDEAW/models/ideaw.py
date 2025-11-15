@@ -90,18 +90,21 @@ class IDEAW(nn.Module):
             n_fft=self.n_fft,
             hop_length=self.hop_len,
             window=window,
-            return_complex=False,
+            return_complex=True,
         )
+        # Convert complex to real format [B, F, T, 2] for compatibility
+        ret = torch.view_as_real(ret)
         return ret  # [B, F, T, C]
 
     def istft(self, data):
         window = torch.hann_window(self.win_len).to(data.device)
+        # Convert real format [B, F, T, 2] back to complex
+        data_complex = torch.view_as_complex(data.contiguous())
         ret = torch.istft(
-            input=data,
+            input=data_complex,
             n_fft=self.n_fft,
             hop_length=self.hop_len,
             window=window,
-            return_complex=False,
         )
         return ret
 
