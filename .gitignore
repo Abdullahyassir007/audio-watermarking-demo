@@ -65,6 +65,9 @@ logs/
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
+# Untracked Colab notebooks (work in progress)
+*_UNTRACKED.ipynb
+
 # Node
 node_modules/
 npm-debug.log

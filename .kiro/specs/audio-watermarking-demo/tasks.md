@@ -60,7 +60,10 @@
     - ✅ Checkpoints saved to Drive for future use
     - _Requirements: 14.8, 14.9_
 
-- [ ] 21. Implement FrEIA-based IDEAW in Colab (NOVELTY)
+- [-] 21. Implement FrEIA-based IDEAW in Colab (NOVELTY)
+
+
+
   - [ ] 21.1 Set up FrEIA in Colab
     - Install FrEIA in Colab: `!pip install FrEIA`
     - Study FrEIA documentation and examples in Colab
@@ -907,7 +910,9 @@ All frontend components must follow these design principles:
     - _Requirements: 14.2, 14.4, 14.8_
 
 - [ ] 21. Implement FrEIA-based IDEAW extensions (NOVELTY)
-  - [ ] 21.1 Set up FrEIA framework
+  - [x] 21.1 Set up FrEIA framework
+
+
     - Install FrEIA: pip install FrEIA
     - Install additional dependencies (PyTorch, etc.)
     - Study FrEIA documentation and examples
